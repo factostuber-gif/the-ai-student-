@@ -1,0 +1,307 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>The AI Student — Learn Faster, Think Deeper & Use AI Responsibly</title>
+<meta name="description" content="A practical guide for students and self-learners who want to use AI to study smarter, think critically, and stay honest.">
+<meta property="og:title" content="The AI Student — Learn Faster, Think Deeper & Use AI Responsibly">
+<meta property="og:description" content="A practical guide for students and self-learners who want to use AI to study smarter, think critically, and stay honest.">
+<meta property="og:type" content="website">
+<script src="./vendor/react.js"></script>
+<script src="./vendor/react-dom.js"></script>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,500;9..144,700&amp;family=DM+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+html{scroll-behavior:smooth}
+.p{font-family:'DM Sans',sans-serif;color:#0E1A2B;background:#F4F6FA;line-height:1.55;font-size:17px}
+.p *{box-sizing:border-box}
+.p h1,.p h2,.p h3{font-family:'Fraunces',serif;margin:0;line-height:1.08;letter-spacing:-0.01em}
+.p h2{font-size:clamp(30px,4.4vw,52px)}
+.p h3{font-size:21px;line-height:1.2}
+.p p{margin:0}
+.p a{color:inherit}
+.w{max-width:1160px;margin:0 auto;padding:0 24px}
+.sec{padding:88px 0}
+.dark{background:#0E1A2B;color:#F4F6FA}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#3040C8;margin-bottom:14px}
+.dark .eyebrow{color:#9AA7FF}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border-radius:999px;background:#3040C8;color:#fff!important;font-weight:700;text-decoration:none;border:2px solid #3040C8;transition:transform .15s,box-shadow .15s}
+.btn:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(48,64,200,.35)}
+.btn:focus-visible,.p a:focus-visible,.p summary:focus-visible{outline:3px solid #E9A23B;outline-offset:3px}
+.btn.ghost{background:transparent;color:#0E1A2B!important;border-color:#0E1A2B}
+.dark .btn.ghost{color:#F4F6FA!important;border-color:#F4F6FA}
+.grid{display:grid;gap:20px}
+.g2{grid-template-columns:repeat(2,1fr)}.g3{grid-template-columns:repeat(3,1fr)}.g4{grid-template-columns:repeat(4,1fr)}
+.card{background:#fff;border:1px solid #DDE2EC;border-radius:20px;padding:26px;transition:transform .15s,box-shadow .15s}
+.card:hover{transform:translateY(-3px);box-shadow:0 14px 30px rgba(14,26,43,.08)}
+.dark .card{background:#16263D;border-color:#2A3D5C}
+.card p,.muted{color:#4A586D}
+.dark .card p,.dark .muted{color:#B9C4D8}
+.num{font-family:'Fraunces',serif;font-size:15px;font-weight:700;color:#3040C8}
+.nav{position:sticky;top:0;z-index:20;background:rgba(244,246,250,.94);border-bottom:1px solid #DDE2EC}
+.nav .w{display:flex;align-items:center;justify-content:space-between;min-height:68px;gap:16px}
+.nav nav{display:flex;gap:26px;align-items:center}
+.nav nav a{text-decoration:none;font-weight:500;font-size:15px}
+.logo{font-family:'Fraunces',serif;font-weight:700;font-size:22px;text-decoration:none}
+.nav .hb{display:none;min-width:44px;min-height:44px;align-items:center;justify-content:center;cursor:pointer;font-weight:700;font:inherit;background:#fff;border:1px solid #DDE2EC;border-radius:12px;padding:0 16px;color:#0E1A2B}
+.nav .menu{position:absolute;left:0;right:0;top:68px;background:#fff;border-bottom:1px solid #DDE2EC;padding:12px 24px 20px;display:flex;flex-direction:column}
+.nav .menu a{padding:14px 0;text-decoration:none;font-weight:500;border-bottom:1px solid #EEF1F6}
+.book{width:280px;height:380px;border-radius:8px 18px 18px 8px;background:linear-gradient(160deg,#16263D,#0E1A2B);color:#F4F6FA;padding:34px 28px;box-shadow:-10px 0 0 #3040C8 inset,0 30px 50px rgba(14,26,43,.35);display:flex;flex-direction:column;justify-content:space-between;transform:rotate(3deg)}
+.book b{font-family:'Fraunces',serif;font-size:42px;line-height:1;display:block}
+.flow{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:16px;font-size:14px;font-weight:500}
+.flow span{padding:8px 12px;border-radius:10px}
+.bad span{background:#FBE3E0;color:#7A1F14}.good span{background:#DCF3E6;color:#0F5132}
+.big{font-family:'Fraunces',serif;font-size:clamp(40px,7vw,84px);line-height:1;font-weight:700}
+.prompt{font-family:ui-monospace,Menlo,monospace;font-size:14px;background:#0E1A2B;color:#DCE4F5;border-radius:12px;padding:14px;margin-top:12px;line-height:1.5}
+.tl{display:grid;grid-template-columns:repeat(5,1fr);gap:12px}
+.tl div{background:#fff;border:1px solid #DDE2EC;border-radius:16px;padding:18px}
+.tl b{font-family:'Fraunces',serif;font-size:22px;display:block;color:#3040C8}
+.list{list-style:none;margin:14px 0 0;padding:0;display:grid;gap:8px}
+.list li{padding-left:28px;position:relative}
+.list li:before{content:"";position:absolute;left:2px;top:.5em;width:12px;height:7px;border-left:3px solid #1F8A57;border-bottom:3px solid #1F8A57;transform:rotate(-45deg)}
+.list.no li:before{border-color:#B3392B;width:12px;height:12px;border:0;top:.35em;background:linear-gradient(45deg,transparent 45%,#B3392B 45%,#B3392B 55%,transparent 55%),linear-gradient(-45deg,transparent 45%,#B3392B 45%,#B3392B 55%,transparent 55%);transform:none}
+.page{background:#fff;border:1px solid #DDE2EC;border-radius:10px;padding:22px;box-shadow:0 12px 28px rgba(14,26,43,.1);position:relative;font-size:14px}
+.page i{position:absolute;top:10px;right:12px;font-style:normal;font-size:11px;font-weight:700;letter-spacing:.1em;color:#3040C8}
+.page h3{font-size:18px;margin-bottom:8px}
+details.faq{background:#fff;border:1px solid #DDE2EC;border-radius:16px;padding:0 22px}
+details.faq summary{cursor:pointer;font-weight:700;padding:18px 0;min-height:44px}
+details.faq p{padding-bottom:18px;color:#4A586D}
+.price{font-family:'Fraunces',serif;font-size:48px;font-weight:700}
+@media(max-width:900px){.g3,.g4,.tl{grid-template-columns:repeat(2,1fr)}.hero{grid-template-columns:1fr!important}}
+@media(max-width:760px){.nav nav,.nav>.w>.btn{display:none}.nav .hb{display:flex}.g2,.g3,.g4,.tl{grid-template-columns:1fr}.sec{padding:60px 0}.book{margin:20px auto}.p{font-size:16px}}
+@media(prefers-reduced-motion:reduce){.btn,.card{transition:none}html{scroll-behavior:auto}}
+</style>
+</helmet>
+<div class="p">
+<header class="nav"><div class="w">
+<a class="logo" href="#top">The AI Student</a>
+<nav aria-label="Main"><a href="#inside">What's Inside</a><a href="#for">Who It's For</a><a href="#why">Why It Matters</a><a href="#faq">FAQ</a></nav>
+<a class="btn" href="#buy" style="min-height:44px;padding:0 20px">Get The eBook</a>
+<button class="hb" type="button" aria-label="Toggle menu" onClick="{{ toggleMenu }}">{{ menuLabel }}</button>
+<sc-if value="{{ menuOpen }}" hint-placeholder-val="{{ false }}"><div class="menu"><a href="#inside" onClick="{{ closeMenu }}">What's Inside</a><a href="#for" onClick="{{ closeMenu }}">Who It's For</a><a href="#why" onClick="{{ closeMenu }}">Why It Matters</a><a href="#faq" onClick="{{ closeMenu }}">FAQ</a><a href="#buy" onClick="{{ closeMenu }}" style="color:#3040C8;font-weight:700">Get The eBook</a></div></sc-if>
+</div></header>
+
+<main id="top">
+<section class="sec" style="padding-top:64px"><div class="w hero" style="display:grid;grid-template-columns:1.25fr 1fr;gap:48px;align-items:center">
+<div>
+<p class="eyebrow">A practical guide · 2026 Edition · by {{authorName}}</p>
+<h1 style="font-size:clamp(38px,6vw,72px)">{{heroHeadline}}</h1>
+<p class="muted" style="margin-top:22px;font-size:19px;max-width:560px">AI is changing education fast, and knowing how to use it well is becoming an essential skill. <strong style="color:#0E1A2B">The AI Student</strong> is a practical guide for school students, college students and self-learners: <em>how to learn faster, think deeper, and stay honest in the age of artificial intelligence.</em></p>
+<div style="display:flex;gap:14px;flex-wrap:wrap;margin-top:30px">
+<a class="btn" href="{{paymentHref}}">{{ctaLabel}}</a>
+<a class="btn ghost" href="#inside">See What's Inside ↓</a></div>
+<p class="muted" style="margin-top:18px;font-size:14px;font-weight:500">Practical • 2026 Edition • 30-Day Action Plan</p>
+</div>
+<div style="display:flex;justify-content:center"><div class="book" role="img" aria-label="The AI Student book cover">
+<span style="font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:#9AA7FF">2026 Edition</span>
+<div><b>The AI<br>Student</b><p style="margin-top:14px;font-size:14px;color:#B9C4D8">How to learn faster, think deeper, and stay honest in the age of artificial intelligence</p></div>
+<span style="font-size:13px;color:#B9C4D8">by {{authorName}}</span></div></div>
+</div></section>
+
+<section class="sec" style="background:#fff"><div class="w">
+<p class="eyebrow">The problem</p>
+<h2 style="max-width:800px">AI can make studying easier. It can also make you stop thinking.</h2>
+<p class="muted" style="margin-top:18px;max-width:680px">Most students already use AI. Very few were taught how. In the studies the book summarizes, the same kind of AI helped some students learn far more and left others worse off. The difference was how they used it.</p>
+<div class="grid g4" style="margin-top:36px">
+<div class="card"><h3>Getting answers isn't the same as learning.</h3></div>
+<div class="card"><h3>AI can sound confident — even when it's wrong.</h3></div>
+<div class="card"><h3>Copying AI's work can leave you unprepared when you have to work alone.</h3></div>
+<div class="card"><h3>Students need practical guidance on where AI helps — and where it should step back.</h3></div></div>
+<p style="margin-top:36px;font-family:'Fraunces',serif;font-size:26px">The solution isn't to avoid AI. It's to learn how to use it properly.</p>
+</div></section>
+
+<section class="sec dark" id="why"><div class="w">
+<p class="eyebrow">The Golden Rule</p>
+<p class="big">Use AI to think more, not less.</p>
+<p class="muted" style="margin-top:22px;max-width:680px">Handing work to a tool isn't automatically bad. The question is which work you hand over. Good offloading removes busywork. Bad offloading skips the very thinking you're meant to learn.</p>
+<div class="grid g2" style="margin-top:36px">
+<div class="card"><h3>Bad AI use</h3><div class="flow bad"><span>AI does the thinking</span>→<span>Student copies</span>→<span>Short-term convenience</span>→<span>Weak learning</span></div></div>
+<div class="card"><h3>Good AI use</h3><div class="flow good"><span>Student thinks</span>→<span>AI challenges or helps</span>→<span>Student checks</span>→<span>Student understands</span>→<span>Stronger learning</span></div></div></div>
+<p style="margin-top:36px;font-family:'Fraunces',serif;font-size:32px;color:#E9A23B">Struggle first, then ask.</p>
+<p class="muted" style="margin-top:10px;max-width:680px">The book's Exam Test: if AI vanished and you had to sit an exam on this tomorrow, would this use of AI have helped you prepare, or left you unprepared?</p>
+</div></section>
+
+<section class="sec" id="inside"><div class="w">
+<p class="eyebrow">Inside the book</p>
+<h2 style="max-width:760px">Everything you need to become an AI-smart student</h2>
+<div class="grid g3" style="margin-top:36px">
+<div class="card"><span class="num">01</span><h3>Meet the AI Student</h3><p>How students are actually using AI.</p></div>
+<div class="card"><span class="num">02</span><h3>How AI Really Works</h3><p>Why it's useful, and why it can confidently produce wrong information.</p></div>
+<div class="card"><span class="num">03</span><h3>The Golden Rule</h3><p>The principle that separates AI-assisted learning from AI-dependent learning.</p></div>
+<div class="card"><span class="num">04</span><h3>Your AI Study Toolkit</h3><p>How to evaluate categories of AI tools.</p></div>
+<div class="card"><span class="num">05</span><h3>The Art of the Prompt</h3><p>The R-C-T-F-C framework and practical prompting habits.</p></div>
+<div class="card"><span class="num">06</span><h3>Supercharge Your Study Methods</h3><p>AI with active recall, spaced repetition and the Feynman technique.</p></div>
+<div class="card"><span class="num">07</span><h3>Writing &amp; Research With Integrity</h3><p>Use AI without crossing academic-integrity lines.</p></div>
+<div class="card"><span class="num">08</span><h3>Staying Safe</h3><p>Privacy, bias, fakes and healthy AI habits.</p></div>
+<div class="card"><span class="num">09</span><h3>AI &amp; Your Future Career</h3><p>The human skills and AI habits that matter beyond school.</p></div>
+<div class="card" style="grid-column:1/-1"><span class="num">10</span><h3>Your 30-Day AI Student Plan</h3><p>Turn the ideas into daily habits. Plus appendices: the AI Student Checklist, a Glossary, and Sources &amp; Further Reading. Every chapter ends with a "Try It Today" activity.</p></div></div>
+</div></section>
+
+<section class="sec" style="background:#fff"><div class="w">
+<p class="eyebrow">The prompt library</p>
+<h2 style="max-width:760px">Don't just ask AI questions. Learn how to prompt it.</h2>
+<p class="muted" style="margin-top:18px;max-width:680px">Learn the R-C-T-F-C formula — Role, Context, Task, Format, Constraints — then use ten ready-to-adapt starter prompts. Notice how many make <em>you</em> do the thinking.</p>
+<div class="grid g3" style="margin-top:36px">
+<div class="card"><h3>1 · Socratic Tutor</h3><div class="prompt">Act as a Socratic tutor… one question at a time… hints if I'm stuck.</div></div>
+<div class="card"><h3>3 · Quiz Me</h3><div class="prompt">Using only my notes, write exam-style questions. Don't show answers yet.</div></div>
+<div class="card"><h3>5 · Solve Together</h3><div class="prompt">Don't solve it. Ask what I've tried, then give the next small hint.</div></div>
+<div class="card"><h3>7 · Feedback, Not Rewriting</h3><div class="prompt">Don't rewrite my draft. Give suggestions I can apply myself.</div></div>
+<div class="card"><h3>9 · Source Check</h3><div class="prompt">List the claims and what kind of source I should check for each.</div></div>
+<div class="card"><h3>And five more</h3><p>Explain It Simply · Find My Gaps · Study Plan · Argue the Other Side · Summary With a Twist</p></div></div>
+<div style="text-align:center;margin-top:40px"><p style="font-family:'Fraunces',serif;font-size:24px;margin-bottom:16px">Get the Prompt Library inside</p><a class="btn" href="{{paymentHref}}">{{ctaLabel}}</a></div>
+</div></section>
+
+<section class="sec"><div class="w">
+<p class="eyebrow">Study methods</p>
+<h2 style="max-width:760px">Proven learning science, upgraded with AI</h2>
+<div class="grid g3" style="margin-top:36px">
+<div class="card"><h3>Active recall</h3><p>Use AI to quiz you instead of simply rereading.</p></div>
+<div class="card"><h3>Spaced repetition</h3><p>Use AI to help build review material, then keep a review schedule.</p></div>
+<div class="card"><h3>Feynman technique</h3><p>Explain a concept yourself and let AI find the gaps.</p></div></div>
+<h3 style="margin:48px 0 18px">A 45-minute AI-assisted study session</h3>
+<div class="tl"><div><b>0–5</b>Recall</div><div><b>5–15</b>Review</div><div><b>15–30</b>Quiz</div><div><b>30–40</b>Explain weak points</div><div><b>40–45</b>Plan next review</div></div>
+</div></section>
+
+<section class="sec dark"><div class="w">
+<p class="eyebrow">Academic integrity</p>
+<h2 style="max-width:760px">Use AI without compromising your own work.</h2>
+<p class="muted" style="margin-top:18px;max-width:700px">Rules differ between schools, teachers, colleges and exam boards. Your institution's AI policy always comes first, including before this book.</p>
+<div class="grid g3" style="margin-top:32px">
+<div class="card"><span class="num">1</span><h3>Follow the policy</h3></div><div class="card"><span class="num">2</span><h3>Verify</h3></div><div class="card"><span class="num">3</span><h3>Disclose when required</h3></div></div>
+<div class="grid g2" style="margin-top:20px">
+<div class="card"><h3>AI can help with</h3><ul class="list"><li>Brainstorming</li><li>Explaining concepts</li><li>Practice questions</li><li>Feedback</li><li>Grammar and clarity, where permitted</li><li>Finding research leads</li></ul></div>
+<div class="card"><h3>AI shouldn't replace</h3><ul class="list no"><li>Your own thinking</li><li>Work you must complete independently</li><li>Sources you haven't checked yourself</li><li>Code or arguments you can't explain</li></ul></div></div>
+</div></section>
+
+<section class="sec"><div class="w">
+<p class="eyebrow">Privacy &amp; safety</p>
+<h2>Become a smarter AI user.</h2>
+<div class="grid g4" style="margin-top:36px">
+<div class="card"><h3>Protect private data</h3><p>Never paste passwords, ID numbers, bank or medical details.</p></div>
+<div class="card"><h3>Check privacy settings</h3><p>Know whether a tool uses your chats to train its models.</p></div>
+<div class="card"><h3>Verify facts and sources</h3><p>Fake references can look real.</p></div>
+<div class="card"><h3>Watch for bias</h3><p>Ask for multiple perspectives on people, culture and politics.</p></div>
+<div class="card"><h3>Doubt realistic fakes</h3><p>Images, voices and videos can be generated. Find the original.</p></div>
+<div class="card"><h3>Keep working without AI</h3><p>If you can't start a task without it, practice.</p></div>
+<div class="card" style="grid-column:span 2"><h3>The pause test</h3><p>Before you hit send: Is this allowed? Would I be comfortable if my teacher saw it? Am I giving away anything private?</p></div></div>
+</div></section>
+
+<section class="sec" style="background:#fff"><div class="w">
+<p class="eyebrow">Career</p>
+<h2 style="max-width:800px">AI literacy is more than knowing which button to press.</h2>
+<p class="muted" style="margin-top:18px;max-width:700px">The book teaches durable skills, not one specific app. Build skills that remain useful even as AI tools change.</p>
+<div class="grid" style="grid-template-columns:repeat(auto-fit,minmax(190px,1fr));margin-top:32px">
+<div class="card"><h3>Judgment</h3></div><div class="card"><h3>Verification</h3></div><div class="card"><h3>Ethics &amp; transparency</h3></div><div class="card"><h3>Communication</h3></div><div class="card"><h3>Adaptability</h3></div></div>
+</div></section>
+
+<section class="sec"><div class="w">
+<p class="eyebrow">The 30-day plan</p>
+<h2 style="max-width:760px">Turn what you learn into a 30-day habit.</h2>
+<p class="muted" style="margin-top:18px">Roughly 10–20 minutes of daily action, with weekly review questions.</p>
+<div class="grid g4" style="margin-top:32px">
+<div class="card"><span class="num">WEEK 1</span><h3>Foundations</h3><p>Know the rules and risks.</p></div>
+<div class="card"><span class="num">WEEK 2</span><h3>Prompting</h3><p>Get better answers.</p></div>
+<div class="card"><span class="num">WEEK 3</span><h3>Study systems</h3><p>Build the habit.</p></div>
+<div class="card"><span class="num">WEEK 4</span><h3>Integrity &amp; career</h3><p>Show what you can do.</p></div></div>
+</div></section>
+
+<section class="sec" id="for" style="background:#fff"><div class="w">
+<p class="eyebrow">Who it's for</p>
+<h2>This book is for you if…</h2>
+<div class="grid g2" style="margin-top:32px">
+<div class="card"><ul class="list"><li>You're a school student using AI for studying.</li><li>You're a college student trying to use AI responsibly.</li><li>You're a self-learner exploring AI-assisted education.</li><li>You want better prompts.</li><li>You want AI to help you learn instead of doing everything for you.</li><li>You want a practical framework for responsible AI use.</li><li>You want study systems that combine AI with active learning.</li></ul></div>
+<div class="card"><h3>This may not be for you if…</h3><ul class="list no"><li>You're looking for a guide to cheating or bypassing academic rules.</li><li>You want AI to do all your thinking for you.</li><li>You're looking for advanced technical machine-learning theory.</li></ul></div></div>
+</div></section>
+
+<section class="sec"><div class="w">
+<p class="eyebrow">What you get</p>
+<h2>Everything in the PDF</h2>
+<div class="card" style="margin-top:32px"><ul class="list" style="grid-template-columns:repeat(auto-fit,minmax(260px,1fr))"><li>The AI Student eBook</li><li>Practical AI study framework</li><li>R-C-T-F-C prompting framework</li><li>Ready-to-adapt prompt library</li><li>AI-assisted study methods</li><li>Academic-integrity guidance</li><li>Privacy and safety guidance</li><li>Career-ready AI habits</li><li>30-Day AI Student Plan</li><li>AI Student Checklist</li><li>Glossary</li><li>Sources and Further Reading</li></ul></div>
+</div></section>
+
+<section class="sec" style="background:#fff"><div class="w">
+<p class="eyebrow">Preview</p>
+<h2>A look at the pages</h2>
+<div class="grid g3" style="margin-top:32px">
+<div class="page"><i>PREVIEW</i><h3>Contents</h3><p class="muted">Introduction · Meet the AI Student · How AI Really Works · The Golden Rule · Your AI Study Toolkit · The Art of the Prompt · and more</p></div>
+<div class="page"><i>PREVIEW</i><h3>Good vs. bad offloading</h3><p class="muted">A side-by-side table that shows which mental work to hand over, and which to keep.</p></div>
+<div class="page"><i>PREVIEW</i><h3>Try It Today</h3><p class="muted">Every chapter closes with a short activity, so you practice instead of just reading.</p></div></div>
+</div></section>
+
+<section class="sec" id="author" style="background:#fff"><div class="w" style="max-width:820px">
+<p class="eyebrow">About the author</p>
+<div class="card" style="display:flex;gap:22px;align-items:flex-start;flex-wrap:wrap"><div aria-hidden="true" style="width:72px;height:72px;border-radius:50%;background:#3040C8;color:#fff;font-family:'Fraunces',serif;font-size:30px;display:flex;align-items:center;justify-content:center">{{authorInitial}}</div>
+<div style="flex:1;min-width:240px"><h2 style="font-size:30px">{{authorName}}</h2><p style="margin-top:10px">{{authorBio}}</p>
+<a class="btn ghost" href="{{youtubeUrl}}" target="_blank" rel="noopener noreferrer" style="margin-top:18px;min-height:44px;color:#0E1A2B!important">Watch on YouTube ↗</a></div></div>
+</div></section>
+
+<section class="sec dark" id="buy"><div class="w" style="text-align:center">
+<h2>Ready to become a smarter AI student?</h2>
+<p class="muted" style="margin-top:16px">Learn how to use AI as a tool for deeper learning — not a replacement for your thinking.</p>
+<div class="card" style="max-width:440px;margin:36px auto 0;text-align:center">
+<h3>The AI Student</h3><p>2026 Edition · PDF eBook</p>
+<p class="price" style="margin:18px 0">{{price}}</p>
+<a class="btn" href="{{paymentHref}}" style="width:100%">{{ctaLabel}}</a>
+<p style="margin-top:14px;font-size:14px">{{paymentNote}}</p></div>
+</div></section>
+
+<section class="sec" id="faq"><div class="w" style="max-width:820px">
+<p class="eyebrow">FAQ</p>
+<h2>Questions, answered</h2>
+<div style="display:grid;gap:12px;margin-top:32px">
+<details class="faq"><summary>Who is this book for?</summary><p>School students, college students, and self-learners who want to use AI more effectively and responsibly.</p></details>
+<details class="faq"><summary>Is this book only for students?</summary><p>It is primarily written for students and self-learners, but many principles are useful for anyone learning with AI.</p></details>
+<details class="faq"><summary>Does the book teach a specific AI tool?</summary><p>It focuses on durable principles and habits rather than button-by-button instructions, because AI tools change quickly.</p></details>
+<details class="faq"><summary>Does it teach how to use AI for cheating?</summary><p>No. The book emphasizes learning, verification, academic integrity and responsible use.</p></details>
+<details class="faq"><summary>Does it include practical prompts?</summary><p>Yes. A starter prompt library covers tutoring, explanations, quizzes, feedback, study planning, source checking and more.</p></details>
+<details class="faq"><summary>How long is the book?</summary><p>The supplied edition is 20 pages including appendices.</p></details>
+<details class="faq"><summary>What format will I receive?</summary><p>A PDF eBook.</p></details>
+<details class="faq"><summary>When do I get the book?</summary><p>After successful payment, you'll be redirected to a thank-you page containing the download link.</p></details>
+<details class="faq"><summary>Will it stay relevant as AI tools change?</summary><p>The book intentionally focuses on habits and principles rather than tool-specific instructions.</p></details></div>
+</div></section>
+
+<section class="sec dark"><div class="w" style="text-align:center">
+<h2 style="max-width:800px;margin:0 auto">Don't let AI do your thinking. Let it help you think better.</h2>
+<p class="muted" style="margin:18px auto 30px;max-width:560px">Struggle first, then ask. Use AI to think more, not less.</p>
+<a class="btn" href="{{paymentHref}}">{{ctaLabel}}</a>
+</div></section>
+</main>
+
+<footer style="background:#0A1220;color:#B9C4D8;padding:48px 0;font-size:14px"><div class="w">
+<p style="font-family:'Fraunces',serif;font-size:22px;color:#fff">The AI Student</p><p style="margin-top:4px">by {{authorName}}</p>
+<p style="margin:8px 0 18px">How to learn faster, think deeper, and stay honest in the age of artificial intelligence.</p>
+<p style="display:flex;gap:22px;flex-wrap:wrap;margin-bottom:18px"><a href="#inside" style="padding:8px 0">What's Inside</a><a href="#faq" style="padding:8px 0">FAQ</a><a href="#buy" style="padding:8px 0">Purchase</a><a href="#author" style="padding:8px 0">Author</a><a href="{{youtubeUrl}}" target="_blank" rel="noopener noreferrer" style="padding:8px 0">YouTube</a></p>
+<p style="max-width:720px">This book is for general education and is not legal, academic-integrity, or career advice. Always follow the AI policy of your own school, college, or exam board.</p>
+</div></footer>
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"paymentUrl":{"editor":"text","default":"YOUR_PAYMENT_GATEWAY_URL","section":"Store settings"},"price":{"editor":"text","default":"₹49","section":"Store settings"},"authorName":{"editor":"text","default":"Abhay Atul","section":"Author"},"authorBio":{"editor":"text","default":"Abhay Atul is the author of The AI Student. He shares learning content on YouTube and wrote this guide to help students use AI to think more, not less.","section":"Author"},"youtubeUrl":{"editor":"text","default":"https://youtube.com/@sunoonlygk","section":"Author"},"heroHeadline":{"editor":"text","default":"Use AI to become a better student — not a dependent one.","section":"Page text"},"ctaLabel":{"editor":"text","default":"Get The AI Student","section":"Page text"},"paymentNote":{"editor":"text","default":"Secure payment • Instant access after payment","section":"Store settings"},"$preview":{"width":1280,"height":9800}}'>
+// ===== CONFIGURATION — or edit the same values in the Tweaks panel (Store settings) =====
+const PAYMENT_URL = "YOUR_PAYMENT_GATEWAY_URL";
+const PRICE = "₹49";
+const PAYMENT_NOTE = "Secure payment • Instant access after payment"; // edit to match your gateway
+// =================================================================
+class Component extends DCLogic {
+state = { menuOpen: false };
+renderVals() {
+const url = this.props.paymentUrl || PAYMENT_URL;
+const live = url.indexOf("YOUR_") !== 0; // until you paste a real URL, buttons jump to the purchase card
+return {
+paymentHref: live ? url : "#buy",
+authorName: this.props.authorName || "Abhay Atul", authorInitial: (this.props.authorName || "A").charAt(0), authorBio: this.props.authorBio || "", youtubeUrl: this.props.youtubeUrl || "https://youtube.com/@sunoonlygk", heroHeadline: this.props.heroHeadline || "Use AI to become a better student — not a dependent one.", ctaLabel: this.props.ctaLabel || "Get The AI Student",
+price: this.props.price || PRICE, paymentNote: this.props.paymentNote || PAYMENT_NOTE,
+menuOpen: this.state.menuOpen,
+menuLabel: this.state.menuOpen ? "Close" : "Menu",
+toggleMenu: () => this.setState({ menuOpen: !this.state.menuOpen }),
+closeMenu: () => this.setState({ menuOpen: false })
+};
+}
+}
+</script>
+</body>
+</html>
